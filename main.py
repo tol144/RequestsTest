@@ -1,6 +1,8 @@
 import asyncio
 import uvicorn
+
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from database.orm.methods import create_tables
 from routers.api import api_router
@@ -9,6 +11,13 @@ from config import settings
 
 def create_fastapi_app():
     fastapi_app = FastAPI()
+    fastapi_app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     fastapi_app.include_router(api_router, prefix="/api")
 
