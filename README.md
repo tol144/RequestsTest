@@ -2,9 +2,9 @@
  
 	server {
 		listen 443 ssl;
-		server_name requests.opngtr.com;
-		ssl_certificate /etc/letsencrypt/live/requests.opngtr.com/fullchain.pem;
-		ssl_certificate_key /etc/letsencrypt/live/requests.opngtr.com/privkey.pem;
+		server_name *******;
+		ssl_certificate /etc/letsencrypt/live/******/fullchain.pem;
+		ssl_certificate_key /etc/letsencrypt/live/****/privkey.pem;
 		location / {
 			proxy_pass http://0.0.0.0:9500;
 			proxy_set_header Host $host;
